@@ -1,0 +1,6 @@
+abra o terminal e entre na pasta do projeto
+cd '.\Desafio Estagio\'
+uma vez dentro da pasta do projeto, ative o ambiente virtual com o seguinte comando:
+.\venv\Scripts\activate
+após ativar o ambiente virtual, rode o projeto com o seguinte comando:
+py -m test
