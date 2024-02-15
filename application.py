@@ -169,8 +169,6 @@ def main():
       values_to_insert.append([Calculate_Student_Status(final_average, absences, total_classes), Calculate_Grade_For_Final_Approval(final_average, absences, total_classes)])
 
       print(f'ID: {id}, name: {name}, absences: {absences}, grade1: {grade1}, grade2: {grade2}, grade3: {grade3}, final_average: {final_average}, Situation: {Calculate_Student_Status(final_average, absences, total_classes)}\n')
-
-    print(values_to_insert)
     
     Insert_Values(creds=creds, values=values_to_insert, SAMPLE_RANGE_NAME="engenharia_de_software!G4")
 
