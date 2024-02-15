@@ -1,5 +1,5 @@
 abra o terminal e entre na pasta do projeto
-cd '.\Desafio Estagio\'
+cd '.\Desafio-Tunts.Rocks-2024---PROCESSO-SELETIVO---DESAFIO-DE-PROGRAMA--O---N-VEL-1\'
 
 crie um ambiente virtual ou atualize o do projeto já existente com o seguinte comando:
 py -m venv venv
