@@ -17,6 +17,8 @@ SAMPLE_RANGE_NAME = "engenharia_de_software!A2:H27"
 # Validation of the credentials file (token.json)
 def Validation():
 
+  print("Validating credentials...")
+
   """Shows basic usage of the Sheets API.
   Prints values from a sample spreadsheet.
   """
@@ -49,11 +51,15 @@ def Validation():
 
     with open("token.json", "w") as token:
       token.write(creds.to_json())
+
+      print("Credentials validated successfully!")
     
   return creds
 
 # Get the total number of classes per semester
 def Get_Total_Classes_Per_Semester(creds):
+
+  print("Getting the total number of classes per semester...")
     
   service = build("sheets", "v4", credentials=creds)
 
@@ -74,10 +80,14 @@ def Get_Total_Classes_Per_Semester(creds):
 
   total_classes = values[0][0]
 
+  print("Total number of classes per semester retrieved successfully!")
+
   return total_classes.split(": ")[1]
 
 # Get the additional information from the spreadsheet
 def Get_Additional_Information(creds, SAMPLE_RANGE_NAME):
+
+  print("Getting additional information from the spreadsheet...")
 
   service = build("sheets", "v4", credentials=creds)
 
@@ -97,6 +107,8 @@ def Get_Additional_Information(creds, SAMPLE_RANGE_NAME):
     return
   
   else:
+    print("Additional information retrieved successfully!")
+
     return values
 
 # Calculate the student status 
@@ -133,9 +145,13 @@ def Calculate_Grade_For_Final_Approval(final_average,absences, total_classes):
 # Insert the values into the spreadsheet
 def Insert_Values(creds, values, SAMPLE_RANGE_NAME):
 
+  print("Inserting the values into the spreadsheet...")
+
   service = build("sheets", "v4", credentials=creds)
       
   body = {"values": values}
+
+  print("Values inserted successfully!")
 
   return service.spreadsheets().values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,range=SAMPLE_RANGE_NAME,valueInputOption="USER_ENTERED",body=body,).execute()
 
@@ -153,6 +169,8 @@ def main():
     values = Get_Additional_Information(creds=creds, SAMPLE_RANGE_NAME="engenharia_de_software!A4:H27")
 
     print(values)
+
+    print("Calculating the student status...And the grade for final approval...")
 
     # Print the values from the spreadsheet to check that everything is working properly.
     for row in values:
